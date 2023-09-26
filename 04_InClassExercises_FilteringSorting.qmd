@@ -60,18 +60,24 @@ filter(impeach, for_impeachment == "NO")
 
 2)  Filter to return only results where a member is both against impeachment, and comes from a district that President Trump won in 2016 (which is noted in the "p16winningparty" column).
 
+**I combined commands by taking my last command, and inserting a comma and the new condition for p16winningparty as R to signify Trump won the district in 2016.**
+
 ```{r}
 
 
 
+filter(impeach, for_impeachment == "NO", p16winningparty == "R")
 
 
 ```
 
 3)  Filter for only results where a member is against impeachment, comes from a district that President Trump won in 2016 (which is noted in the "p16winningparty" column), and also comes from a district that Mitt Romney won in 2012 ("p12winningparty").
 
+**Again, I took my command from the previous question and added to it so that p12winningparty must also be R for Romney.**
+
 ```{r}
 
+filter(impeach, for_impeachment == "NO", p16winningparty == "R", p12winningparty == "R")
 
 
 
@@ -80,9 +86,11 @@ filter(impeach, for_impeachment == "NO")
 
 4)  Filter for only results from September 2019 where a member is a YES for impeachment.
 
+**I used the same format for my commands as before, this time using for_impeachment as yes instead of no. I also added the conditions that date_month is 9 and date_year is 2019. I could have inserted a range of possible date_comb values instead, but I found this method more straight forward.**
+
 ```{r}
 
-
+filter(impeach, for_impeachment == "YES", date_month == "9", date_year == "2019")
 
 
 
